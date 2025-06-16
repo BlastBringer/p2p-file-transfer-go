@@ -74,7 +74,7 @@ func main() {
 	http.HandleFunc("/ws", handleWebSocket)
 	serveStaticFiles()
 	url := "http://localhost:8080"
-	linkText := "Click "
+	linkText := "Click"
 
 	link := termlink.Link(linkText, url)
 

@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>P2P WebSocket</title>
-</head>
+<head><title>P2P File Transfer – WebRTC</title></head>
 <body>
-  <h2>Peer-to-Peer WebSocket</h2>
+  <h2>🌐 WebRTC P2P Connection</h2>
 
   <label>Your Peer ID:</label>
-  <input type="text" id="peerIDInput" />
-  <button id="registerBtn">Register</button>
+  <input type="text" id="peerID">
+  <button onclick="register()">Register</button>
+
   <br><br>
 
   <label>Target Peer ID:</label>
-  <input type="text" id="targetIDInput" />
-  <button id="signalBtn">Send Signal</button>
+  <input type="text" id="targetID">
+  <button onclick="connectToPeer()">Connect</button>
+
+  <br><br>
+
+  <textarea id="chatBox" placeholder="Type message..."></textarea>
+  <button onclick="dataChannel.send(document.getElementById('chatBox').value)">Send</button>
 
   <pre id="log"></pre>
 
-  <script src="./app.js"></script>
+  <input type="file" id="fileInput" />
+<button onclick="sendFile()">Send File</button>
+<br />
+<progress id="fileProgress" value="0" max="100" style="width: 300px;"></progress>
+<span id="progressText">0%</span>
+
+
+  <h2>📁 File Transfer</h2>
+<input type="file" id="fileInput" />
+<button onclick="sendFile()">Send File</button>
+<hr>
+
+
+  <script src="app.js"></script>
 </body>
 </html>
